@@ -9,7 +9,16 @@ repositories {
     mavenCentral()
 }
 
+ext {
+    versions = [
+            lombok   : '1.18.20'
+    ]
+}
+
 dependencies {
+    compileOnly "org.projectlombok:lombok:$versions.lombok"
+    annotationProcessor "org.projectlombok:lombok:$versions.lombok"
+
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
 }
