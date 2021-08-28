@@ -42,7 +42,7 @@ public class SimpleHandValueDecider implements HandValueDecider {
             if (occurrenceMap.containsValue(2)) {
                 return new HandValue(Combination.FULL_HOUSE, primaryValue);
             } else {
-                return new HandValue(Combination.THREE_OF_A_KING, primaryValue);
+                return new HandValue(Combination.THREE_OF_A_KIND, primaryValue);
             }
         } else if (occurrenceMap.containsValue(2)) {
             if (occurrenceMap.size() == 3) {
@@ -82,11 +82,24 @@ public class SimpleHandValueDecider implements HandValueDecider {
         return new HandValue(Combination.HIGH_CARD);
     }
 
-    boolean isTheSameSuit(List<Card> cards) {
+    /**
+     * Checks if all cards belong to the same suit
+     *
+     * @param cards the cards to be checked
+     * @return true if all cards have the same suit, or false otherwise
+     */
+    public static boolean isTheSameSuit(List<Card> cards) {
         return cards.stream().map(Card::getSuit).collect(Collectors.toSet()).size() == 1;
     }
 
-    boolean isStraight(List<Card> cards) {
+    /**
+     * Checks if the <b>SORTED</b> cards (by values, regardless their suits) are
+     * a straight
+     *
+     * @param cards the cards to be checked
+     * @return true if all cards forms a straight, or false otherwise
+     */
+    public static boolean isStraight(List<Card> cards) {
         for (int i = 1; i < cards.size(); ++i) {
             if (cards.get(i).getValue() - cards.get(i - 1).getValue() != 1) {
                 return false;

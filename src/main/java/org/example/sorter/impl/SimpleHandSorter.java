@@ -40,6 +40,12 @@ public class SimpleHandSorter implements HandSorter {
         List<Card> cardsCopy2 = new ArrayList<>(hand2.getCards());
         Collections.sort(cardsCopy1);
         Collections.sort(cardsCopy2);
+
+        // for straight, compare either smallest or largest card is enough
+        if (SimpleHandValueDecider.isStraight(cardsCopy1)) {
+            return cardsCopy1.get(0).getValue() - cardsCopy2.get(0).getValue();
+        }
+
         for (int i = cardsCopy1.size() - 1; i >= 0; --i) {
             int diff = cardsCopy1.get(i).getValue() - cardsCopy2.get(i).getValue();
             if (diff != 0) {

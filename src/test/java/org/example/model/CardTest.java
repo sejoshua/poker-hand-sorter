@@ -28,4 +28,16 @@ class CardTest {
         assertThrows(IllegalArgumentException.class, () -> Card.from("9c"), "Invalid card: 9c");
         assertThrows(IllegalArgumentException.class, () -> Card.from("A"), "Invalid card: A");
     }
+
+    @Test
+    void compareToTest() {
+        Card card1 = Card.from("4H");
+        Card card2 = Card.from("TD");
+        Card card3 = Card.from("4S");
+        Card card4 = Card.from("AC");
+
+        assertEquals(0, card1.compareTo(card3));
+        assertTrue(card1.compareTo(card2) < 0);
+        assertTrue(card4.compareTo(card2) > 0);
+    }
 }

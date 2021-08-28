@@ -2,6 +2,7 @@ package org.example.model;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
 import java.util.regex.Matcher;
@@ -12,6 +13,7 @@ import java.util.regex.Pattern;
  */
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
+@EqualsAndHashCode
 public class Card implements Comparable<Card> {
     private static final Pattern VALID_CARD_PATTERN = Pattern.compile("^([1-9TJKQA])([DHSC])$");
 

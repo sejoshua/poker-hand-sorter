@@ -13,7 +13,7 @@ public enum Combination {
     HIGH_CARD(1, "Highest value card"),
     PAIR(2, "Two cards of same value"),
     TWO_PAIRS(3, "Two different pairs"),
-    THREE_OF_A_KING(4, "Three cards of the same value"),
+    THREE_OF_A_KIND(4, "Three cards of the same value"),
     STRAIGHT(5, "All five cards in consecutive value order"),
     FLUSH(6, "All five cards having the same suit"),
     FULL_HOUSE(7, "Three of a kind and a Pair"),

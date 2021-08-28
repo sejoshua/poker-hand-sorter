@@ -14,7 +14,10 @@ gradle.bat clean build jar
 #### To run the code
 After building the project, run from the project directory
 ```shell
-cat poker-hands.txt | java -jar build/libs/poker-hand-sorter-1.0-SNAPSHOT.jar
+$ cat poker-hands.txt | java -jar build/libs/poker-hand-sorter-1.0-SNAPSHOT.jar
+Player 0: 263
+Player 1: 237
+Tie: 0
 ```
 
 ### Dive into the Code
